@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 provider "vault" {
-  address = "https://ip_address of ec2:8200"
+  address = "http://ip_address of ec2:8200"
   skip_child_token = true
 
   auth_login {
@@ -27,6 +27,6 @@ resource "aws_instance" "my_instance" {
 
   tags = {
     Name = "test"
-    Secret = data.vault_kv_secret_v2.example.data["foo"]
+    Secret = data.vault_kv_secret_v2.example.data["username"]
   }
 }
